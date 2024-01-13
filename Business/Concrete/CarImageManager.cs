@@ -1,20 +1,26 @@
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Helpers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
 {
     public class CarImageManager : ICarImageService
     {
-        private ICarImageDal _iCarImageDal;
 
-        public CarImageManager(ICarImageDal iCarImageDal)
+        ICarImageDal _carImageDal;
+        IFileHelper _fileHelper;
+
+        public CarImageManager(ICarImageDal carImageDal, IFileHelper? fileHelper)
         {
-            _iCarImageDal = iCarImageDal;
+            _carImageDal = carImageDal;
+            _fileHelper = fileHelper;
         }
 
-        public IResult Add(CarImage carImage)
+        public IResult Add(IFormFile? file, CarImage carImage)
         {
             throw new NotImplementedException();
         }
@@ -26,10 +32,20 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetAll()
         {
-            return new SuccessDataResult<List<CarImage>>(_iCarImageDal.GetAll());
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
-        public IResult Update(CarImage carImage)
+        public IDataResult<List<CarImage>> GetByCarId(int carId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<CarImage> GetByImageId(int imageId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(IFormFile file, CarImage carImage)
         {
             throw new NotImplementedException();
         }
