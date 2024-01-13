@@ -29,5 +29,6 @@ namespace Business.Constants
         public static string ColorListed = "Arabalar Listelendi";
         internal static string CarNameAlreadyExists;
 
+        public static string CarImageAdded { get; internal set; }
     }
 }
