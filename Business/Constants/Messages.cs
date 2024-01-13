@@ -27,5 +27,7 @@ namespace Business.Constants
         public static string ColorDeleted = "Araba silindi";
         public static string ColorUpdated = "Araba güncellendi";
         public static string ColorListed = "Arabalar Listelendi";
+        internal static string CarNameAlreadyExists;
+
     }
 }
