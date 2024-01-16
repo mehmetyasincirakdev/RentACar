@@ -45,7 +45,6 @@ namespace Core.Utilities.Helpers
                     file.CopyTo(fileStream);
                     fileStream.Flush();//Arabellekten silme işlemi
                     return filePath; //Sql servere dosya yollanırken adıyla eklenmesi için dosyanın tam adı döndürülüyor
-
                 }
             }
             return null;
