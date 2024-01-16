@@ -22,7 +22,10 @@ namespace Business.Concrete
 
         public IResult Add(IFormFile? file, CarImage carImage)
         {
-            throw new NotImplementedException();
+            carImage.ImagePath = _fileHelper.Upload(file,PathConstans.ImagesPath);
+            carImage.DateUploaded = DateTime.Now;
+            _carImageDal.Add(carImage);
+            return new SuccessResult("Pictures uploaded succesfully");
         }
 
         public IResult Delete(CarImage carImage)
