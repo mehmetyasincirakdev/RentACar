@@ -30,5 +30,6 @@ namespace Business.Constants
         internal static string CarNameAlreadyExists;
 
         public static string CarImageAdded { get; internal set; }
+        public static string? AuthorizationDenied = "Yetkiniz yok";
     }
 }
