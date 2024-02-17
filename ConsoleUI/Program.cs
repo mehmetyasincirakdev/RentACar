@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 
@@ -141,17 +142,6 @@ static void BrandGetAllTest(BrandManager brandManager)
 }
 
 
-static void UserAddTest(UserManager userManager)
-{
-    User user1 = new User
-    {
-        FirstName = "Berk",
-        LastName = "Kılıç",
-        eMail = "a@gmail.com",
-        Password= "Password",
-    };
-    userManager.Add(user1);
-}
 static void CustomerAddTest(CustomerManager customerManager)
 {
     Customer customer1 = new Customer
