@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -18,13 +19,13 @@ public class UserManager : IUserService
     public IResult Add(User user)
     {
         _userdal.Add(user);
-        return new SuccessResult();
+        return new SuccessResult(Messages.UserAdded);
     }
 
     public IResult Delete(User user)
     {
         _userdal.Delete(user);
-        return new SuccessResult();
+        return new SuccessResult(Messages.UserDeleted);
     }
 
     public IDataResult<List<User>> GetAll()
@@ -50,6 +51,6 @@ public class UserManager : IUserService
     public IResult Update(User user)
     {
         _userdal.Update(user);
-        return new SuccessResult();
+        return new SuccessResult(Messages.UserUpdated);
     }
 }

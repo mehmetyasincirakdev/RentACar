@@ -28,9 +28,13 @@ namespace Business.Constants
         public static string ColorDeleted = "Araba silindi";
         public static string ColorUpdated = "Araba güncellendi";
         public static string ColorListed = "Arabalar Listelendi";
-        internal static string CarNameAlreadyExists;
 
-        public static string CarImageAdded { get; internal set; }
+        //User Messages
+        public static string UserAdded = "User Added";
+        public static string UserDeleted = "User Deleted";
+        public static string UserUpdated = "User Update";
+        public static string UsersListed = "Users Listed";
+
         public static string? AuthorizationDenied = "Yetkiniz yok";
         public static string UserNotFound = "Kullanıcı bulunamadı";
         public static string PasswordError = "Şifre hatalı";

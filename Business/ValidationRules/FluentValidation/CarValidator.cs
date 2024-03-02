@@ -1,4 +1,4 @@
-using Entities.Concrete;
+﻿using Entities.Concrete;
 using FluentValidation;
 
 namespace Business.ValidationRules.FluentValidation
@@ -7,10 +7,10 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CarValidator()
         {
-            RuleFor(p => p.CarName).NotEmpty();
-            RuleFor(p => p.CarName).MinimumLength(2);
-            RuleFor(p => p.CarName).NotEmpty();
-            RuleFor(p => p.DailyPrice).GreaterThan(0);        
+            RuleFor(c => c.CarName).NotEmpty();
+            RuleFor(c => c.CarName).MinimumLength(2);
+            RuleFor(c => c.DailyPrice).NotEmpty();
+            RuleFor(c => c.DailyPrice).GreaterThan(0);
         }
     }
 }
