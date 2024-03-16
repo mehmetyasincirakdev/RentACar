@@ -1,6 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
-
 using Entities.Concrete;
 using Entities.DTOs;
 
@@ -10,30 +9,26 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<RentalDetailDto> GetRentalDetails()
         {
-            using (RentACarContext context = new RentACarContext())
+            using (var context = new RentACarContext())
             {
-                var result = from c in context.Customers
+                var result = from rental in context.Rentals
                              join car in context.Cars
-                             on c.Id equals car.Id
-                             join r in context.Rentals
-                             on c.Id equals r.CustomerId
-                             join u in context.Users
-                             on c.UserId equals u.Id
-
-                             select new RentalDetailDto
+                             on rental.CarId equals car.Id
+                             join brand in context.Brands
+                             on car.BrandId equals brand.Id
+                             join color in context.Colors
+                             on car.ColorId equals color.Id
+                             join user in context.Users
+                             on rental.Id equals user.Id
+                             select new RentalDetailDto()
                              {
-                                 FirstName = u.FirstName,
-                                 LastName = u.LastName,
                                  CarName = car.CarName,
-                                 ModelYear = car.ModelYear,
-                                 DailyPrice = car.DailyPrice,
-                                 RentDate = r.RentDate,
-                                 ReturnDate = r.ReturnDate,
+                                 BrandName = brand.BrandName,
+                                 ColorName = color.ColorName,
+                                 CustomerName = user.FirstName + " " + user.LastName
                              };
                 return result.ToList();
             }
         }
-
-        
     }
 }
